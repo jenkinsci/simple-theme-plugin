@@ -1,0 +1,10 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:section title="Theme">
+    <f:entry title="URL of theme CSS"
+      description="Specify URL of a theme CSS."
+      field="cssUrl"
+      help="/plugin/simple-theme-plugin/help-globalConfig.html">
+      <f:textbox />
+    </f:entry>
+  </f:section>
+</j:jelly>
