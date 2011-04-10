@@ -20,13 +20,11 @@ public class SimpleThemeDecorator extends PageDecorator {
 			throws FormException {
 		cssUrl = formData.getString("cssUrl");
 		jsUrl = formData.getString("jsUrl");
-		System.out.println("======DEBUG" + cssUrl);
 		save();
 		return super.configure(req, formData);
 	}
 
 	public String getCssUrl() {
-		System.out.println("======DEBUG(GET)" + cssUrl);
 		return cssUrl;
 	}
 
