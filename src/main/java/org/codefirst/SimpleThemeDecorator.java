@@ -9,6 +9,7 @@ import org.kohsuke.stapler.StaplerRequest;
 @Extension
 public class SimpleThemeDecorator extends PageDecorator {
 	private String cssUrl;
+	private String jsUrl;
 
 	public SimpleThemeDecorator() {
 		super(SimpleThemeDecorator.class);
@@ -18,6 +19,7 @@ public class SimpleThemeDecorator extends PageDecorator {
 	public boolean configure(StaplerRequest req, JSONObject formData)
 			throws FormException {
 		cssUrl = formData.getString("cssUrl");
+		jsUrl = formData.getString("jsUrl");
 		System.out.println("======DEBUG" + cssUrl);
 		save();
 		return super.configure(req, formData);
@@ -26,6 +28,10 @@ public class SimpleThemeDecorator extends PageDecorator {
 	public String getCssUrl() {
 		System.out.println("======DEBUG(GET)" + cssUrl);
 		return cssUrl;
+	}
+
+	public String getJsUrl() {
+		return jsUrl;
 	}
 
 }

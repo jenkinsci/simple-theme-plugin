@@ -6,5 +6,11 @@
       help="/plugin/simple-theme-plugin/help-globalConfig.html">
       <f:textbox />
     </f:entry>
+    <f:entry title="URL of theme JS"
+      description="Specify URL of a theme JS."
+      field="jsUrl"
+      help="/plugin/simple-theme-plugin/help-globalConfig.html">
+      <f:textbox />
+    </f:entry>
   </f:section>
 </j:jelly>
