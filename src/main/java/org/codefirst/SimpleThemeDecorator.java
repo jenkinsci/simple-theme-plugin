@@ -13,6 +13,7 @@ public class SimpleThemeDecorator extends PageDecorator {
 
 	public SimpleThemeDecorator() {
 		super(SimpleThemeDecorator.class);
+		load();
 	}
 
 	@Override
