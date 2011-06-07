@@ -1,4 +1,4 @@
-simple-theme-plugin for Jenkins
+Simple Theme Plugin for Jenkins
 ==============================
 A plugin for Jenkins that supports custom CSS & JavaScript.
 You can customize Jenkins's appearance (ex. his gentle face on the background).
