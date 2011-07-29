@@ -2,14 +2,12 @@
   <f:section title="Theme">
     <f:entry title="URL of theme CSS"
       description="Specify URL of a theme CSS."
-      field="cssUrl"
-      help="/plugin/simple-theme-plugin/help-globalConfig.html">
+      field="cssUrl">
       <f:textbox />
     </f:entry>
     <f:entry title="URL of theme JS"
       description="Specify URL of a theme JS."
-      field="jsUrl"
-      help="/plugin/simple-theme-plugin/help-globalConfig.html">
+      field="jsUrl">
       <f:textbox />
     </f:entry>
   </f:section>
