@@ -26,4 +26,21 @@
       <url>http://maven.glassfish.org/content/groups/public/</url>
     </pluginRepository>
   </pluginRepositories>
+
+  <scm>
+    <connection>scm:git:ssh://github.com/jenkinsci/simple-theme-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/simple-theme-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/simple-theme-plugin</url>
+  </scm>
+
+  <url>http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin</url>
+
+  <developers>
+    <developer>
+      <id>mallowlabs</id>
+      <name>mallowlabs</name>
+      <email>mallowlabs@gmail.com</email>
+    </developer>
+  </developers>
+
 </project>
