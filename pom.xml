@@ -6,9 +6,9 @@
     <version>1.399</version><!-- which version of Jenkins is this plugin built against? -->
   </parent>
 
-  <groupId>org.codefirst</groupId>
+  <groupId>org.codefirst.jenkins.simplethemeplugin</groupId>
   <artifactId>simple-theme-plugin</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <packaging>hpi</packaging>
   <name>Simple Theme Plugin</name>
 
