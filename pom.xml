@@ -9,7 +9,7 @@
 
   <groupId>org.codefirst.jenkins.simplethemeplugin</groupId>
   <artifactId>simple-theme-plugin</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.3</version>
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
