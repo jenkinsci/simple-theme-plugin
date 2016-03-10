@@ -3,5 +3,5 @@
   This view is used to render the installed plugins page.
 -->
 <div>
-  A plugin for Jenkins that supports custom CSS &amp; JavaScript. You can customize Jenkins' appearance.
+  A plugin for Jenkins that supports custom CSS, JavaScript &amp; Favicon. You can customize Jenkins's appearance.
 </div>
