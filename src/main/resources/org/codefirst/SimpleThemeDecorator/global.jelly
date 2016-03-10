@@ -11,5 +11,10 @@
       field="jsUrl">
       <f:textbox />
     </f:entry>
+    <f:entry title="URL of theme Favicon"
+      description="Specify URL of a theme Favicon."
+      field="faviconUrl">
+      <f:textbox />
+    </f:entry>
   </f:section>
 </j:jelly>

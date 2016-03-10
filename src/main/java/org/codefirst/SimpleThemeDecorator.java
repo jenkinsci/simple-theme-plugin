@@ -10,6 +10,7 @@ import org.kohsuke.stapler.StaplerRequest;
 public class SimpleThemeDecorator extends PageDecorator {
 	private String cssUrl;
 	private String jsUrl;
+	private String faviconUrl;
 
 	public SimpleThemeDecorator() {
 		super(SimpleThemeDecorator.class);
@@ -21,6 +22,7 @@ public class SimpleThemeDecorator extends PageDecorator {
 			throws FormException {
 		cssUrl = formData.getString("cssUrl");
 		jsUrl = formData.getString("jsUrl");
+		faviconUrl = formData.getString("faviconUrl");
 		save();
 		return super.configure(req, formData);
 	}
@@ -31,6 +33,10 @@ public class SimpleThemeDecorator extends PageDecorator {
 
 	public String getJsUrl() {
 		return jsUrl;
+	}
+
+	public String getFaviconUrl() {
+		return faviconUrl;
 	}
 
 }

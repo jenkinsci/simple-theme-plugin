@@ -1,0 +1,16 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <j:if test="${it.faviconUrl != null}">
+    <div id="org.codefirst.simple-theme.favicon.data"
+         data-favicon-url="${it.faviconUrl}"
+         ></div>
+    <script src="${rootURL}/plugin/simple-theme-plugin/simple-theme.js"></script>
+    <script>
+      (function() {
+        var simpleTheme = this['org.codefirst.simple-theme'];
+        var data = document.getElementById('org.codefirst.simple-theme.favicon.data');
+        simpleTheme.favicon.replace(data.getAttribute('data-favicon-url'));
+      })();
+    </script>
+  </j:if>
+</j:jelly>
