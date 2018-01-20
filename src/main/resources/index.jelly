@@ -1,6 +1,7 @@
+<?jelly escape-by-default='true'?>
 <!--
   This view is used to render the installed plugins page.
 -->
 <div>
-  A plugin for Jenkins that supports custom CSS &amp; JavaScript. You can customize Jenkins's appearance (ex. his gentle face on the background).
+  A plugin for Jenkins that supports custom CSS &amp; JavaScript. You can customize Jenkins' appearance.
 </div>
