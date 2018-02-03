@@ -8,6 +8,7 @@ import org.kohsuke.stapler.StaplerRequest;
 @Extension
 public class SimpleThemeDecorator extends PageDecorator {
 	private String cssUrl;
+	private String cssRules;
 	private String jsUrl;
 	private String faviconUrl;
 
@@ -30,6 +31,14 @@ public class SimpleThemeDecorator extends PageDecorator {
 
 	public String getCssUrl() {
 		return cssUrl;
+	}
+
+	public void setCssRules(String cssRules) {
+		this.cssRules = cssRules;
+	}
+
+	public String getCssRules() {
+		return cssRules;
 	}
 
 	public void setJsUrl(String jsUrl) {
