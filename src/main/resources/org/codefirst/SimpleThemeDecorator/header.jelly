@@ -11,4 +11,14 @@
   <j:if test="${it.getJsUrl() != null}">
     <script type="text/javascript" src="${it.getJsUrl()}"></script>
   </j:if>
+  <j:if test="${it.faviconUrl != null}">
+    <script src="${rootURL}/plugin/simple-theme-plugin/simple-theme.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var simpleTheme = window['org.codefirst.simple-theme'];
+        simpleTheme.favicon.replace("${it.faviconUrl}");
+      });
+    </script>
+  </j:if>
+
 </j:jelly>
