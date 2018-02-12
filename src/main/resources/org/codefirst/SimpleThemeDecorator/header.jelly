@@ -1,7 +1,8 @@
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
+         xmlns:t="/lib/hudson" xmlns:f="/lib/form">
   <j:if test="${!empty(it.getCssUrl())}">
-    <link type="text/css" rel="stylesheet" href="${it.getCssUrl()}" />
+    <link type="text/css" rel="stylesheet" href="${it.getCssUrl()}"/>
   </j:if>
   <j:if test="${!empty(it.getCssRules())}">
     <style type="text/css"><![CDATA[
@@ -11,12 +12,12 @@
   <j:if test="${!empty(it.getJsUrl())}">
     <script type="text/javascript" src="${it.getJsUrl()}"></script>
   </j:if>
-  <j:if test="${!empty(it.faviconUrl())}">
+  <j:if test="${!empty(it.getFaviconUrl())}">
     <script src="${rootURL}/plugin/simple-theme-plugin/simple-theme.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
-        var simpleTheme = window['org.codefirst.simple-theme'];
-        simpleTheme.favicon.replace("${it.faviconUrl}");
+      var simpleTheme = window['org.codefirst.simple-theme'];
+      simpleTheme.favicon.replace("${it.getFaviconUrl()}");
       });
     </script>
   </j:if>

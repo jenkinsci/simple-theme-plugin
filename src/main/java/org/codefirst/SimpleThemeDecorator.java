@@ -7,54 +7,54 @@ import org.kohsuke.stapler.StaplerRequest;
 
 @Extension
 public class SimpleThemeDecorator extends PageDecorator {
-	private String cssUrl;
-	private String cssRules;
-	private String jsUrl;
-	private String faviconUrl;
+    private String cssUrl;
+    private String cssRules;
+    private String jsUrl;
+    private String faviconUrl;
 
-	public SimpleThemeDecorator() {
-		super();
-		load();
-	}
+    public SimpleThemeDecorator() {
+        super();
+        load();
+    }
 
-	@Override
-	public boolean configure(StaplerRequest req, JSONObject formData)
-			throws FormException {
-		req.bindJSON(this, formData);
-		save();
-		return true;
-	}
+    @Override
+    public boolean configure(StaplerRequest req, JSONObject formData)
+            throws FormException {
+        req.bindJSON(this, formData);
+        save();
+        return true;
+    }
 
-	public void setCssUrl(String cssUrl) {
-		this.cssUrl = cssUrl;
-	}
+    public String getCssUrl() {
+        return cssUrl;
+    }
 
-	public String getCssUrl() {
-		return cssUrl;
-	}
+    public void setCssUrl(String cssUrl) {
+        this.cssUrl = cssUrl;
+    }
 
-	public void setCssRules(String cssRules) {
-		this.cssRules = cssRules;
-	}
+    public String getCssRules() {
+        return cssRules;
+    }
 
-	public String getCssRules() {
-		return cssRules;
-	}
+    public void setCssRules(String cssRules) {
+        this.cssRules = cssRules;
+    }
 
-	public void setJsUrl(String jsUrl) {
-		this.jsUrl = jsUrl;
-	}
+    public String getJsUrl() {
+        return jsUrl;
+    }
 
-	public String getJsUrl() {
-		return jsUrl;
-	}
+    public void setJsUrl(String jsUrl) {
+        this.jsUrl = jsUrl;
+    }
 
-	public void setFaviconUrl(String faviconUrl) {
-		this.faviconUrl = faviconUrl;
-	}
+    public String getFaviconUrl() {
+        return faviconUrl;
+    }
 
-	public String getFaviconUrl() {
-		return faviconUrl;
-	}
+    public void setFaviconUrl(String faviconUrl) {
+        this.faviconUrl = faviconUrl;
+    }
 
 }
