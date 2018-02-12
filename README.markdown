@@ -1,7 +1,7 @@
 # Simple Theme Plugin for Jenkins
 
-A plugin for Jenkins that supports custom CSS & JavaScript.
-You can customize Jenkins' appearance.
+This plugin allows to customize Jenkin's appearance with custom
+CSS and JavaScript. It also allows to replace the Favicon.
 
 ## Themes
 
