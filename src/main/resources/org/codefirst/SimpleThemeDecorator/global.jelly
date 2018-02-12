@@ -8,7 +8,8 @@
       <f:textbox/>
     </f:entry>
     <f:entry title="${%Extra CSS}"
-             field="cssRules">
+             field="cssRules"
+             help="/plugin/simple-theme-plugin/help-cssRules.html">
       <f:textarea/>
     </f:entry>
     <f:entry title="${%URL of theme JavaScript}"

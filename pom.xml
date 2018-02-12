@@ -6,7 +6,7 @@
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
     <version>2.37</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <artifactId>simple-theme-plugin</artifactId>
@@ -14,6 +14,9 @@
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
+  <description>This plugin allows to customize Jenkin's appearance with custom
+    CSS and JavaScript. It also allows to replace the Favicon.
+  </description>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin</url>
   <licenses>
     <license>
