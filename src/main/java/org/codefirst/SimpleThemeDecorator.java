@@ -3,7 +3,11 @@ package org.codefirst;
 import hudson.Extension;
 import hudson.model.PageDecorator;
 import net.sf.json.JSONObject;
+import org.kohsuke.stapler.Ancestor;
+import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
+
+import java.util.List;
 
 @Extension
 public class SimpleThemeDecorator extends PageDecorator {
@@ -57,4 +61,31 @@ public class SimpleThemeDecorator extends PageDecorator {
         this.faviconUrl = faviconUrl;
     }
 
+    /**
+     * Filter to only inject CSS into "normal" Jenkins pages. Some plugins
+     * replace the whole layout of Jenkins and we don't want to disturb them.
+     *
+     * @return true if it is okay to inject CSS
+     */
+    public boolean shouldInjectCss() {
+        StaplerRequest req = Stapler.getCurrentRequest();
+        if (req == null) {
+            return false;
+        }
+
+        List<Ancestor> ancestors = req.getAncestors();
+        if (ancestors == null || ancestors.size() == 0) {
+            return false;
+        }
+
+        Ancestor a = ancestors.get(ancestors.size() - 1);
+        Object o = a.getObject();
+
+        // We don't want to style the build-monitor-plugin
+        if (o.getClass().getName().startsWith("com.smartcodeltd.jenkinsci.plugins.buildmonitor")) {
+            return false;
+        }
+
+        return true;
+    }
 }

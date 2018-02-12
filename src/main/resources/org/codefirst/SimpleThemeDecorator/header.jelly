@@ -1,13 +1,15 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-  <j:if test="${!empty(it.getCssUrl())}">
-    <link type="text/css" rel="stylesheet" href="${it.getCssUrl()}"/>
-  </j:if>
-  <j:if test="${!empty(it.getCssRules())}">
-    <style type="text/css"><![CDATA[
+  <j:if test="${it.shouldInjectCss()}">
+    <j:if test="${!empty(it.getCssUrl())}">
+      <link type="text/css" rel="stylesheet" href="${it.getCssUrl()}"/>
+    </j:if>
+    <j:if test="${!empty(it.getCssRules())}">
+      <style type="text/css"><![CDATA[
       ${it.getCssRules()}
     ]]></style>
+    </j:if>
   </j:if>
   <j:if test="${!empty(it.getJsUrl())}">
     <script type="text/javascript" src="${it.getJsUrl()}"></script>
