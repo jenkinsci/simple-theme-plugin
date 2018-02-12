@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>simple-theme-plugin</artifactId>
-  <version>0.4</version>
+  <version>0.5-SNAPSHOT</version>
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
@@ -37,7 +37,7 @@
     <connection>scm:git:ssh://github.com/jenkinsci/${project.artifactId}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}.git</developerConnection>
     <url>https://github.com/jenkinsci/${project.artifactId}</url>
-    <tag>simple-theme-plugin-0.4</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
