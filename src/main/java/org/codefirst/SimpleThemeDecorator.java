@@ -2,15 +2,21 @@ package org.codefirst;
 
 import hudson.Extension;
 import hudson.model.PageDecorator;
+import hudson.model.Descriptor;
 import net.sf.json.JSONObject;
+import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.Ancestor;
 import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import java.util.List;
 
 @Extension
+@Symbol("simple-theme-plugin")
 public class SimpleThemeDecorator extends PageDecorator {
+    // CASC: PageDecorator extends Descriptor
+
     private String cssUrl;
     private String cssRules;
     private String jsUrl;
@@ -24,6 +30,12 @@ public class SimpleThemeDecorator extends PageDecorator {
     @Override
     public boolean configure(StaplerRequest req, JSONObject formData)
             throws FormException {
+        // reset values to default before data-binding
+        this.cssUrl = null;
+        this.cssRules = null;
+        this.jsUrl = null;
+        this.faviconUrl = null;
+
         req.bindJSON(this, formData);
         save();
         return true;
@@ -33,6 +45,7 @@ public class SimpleThemeDecorator extends PageDecorator {
         return cssUrl;
     }
 
+    @DataBoundSetter
     public void setCssUrl(String cssUrl) {
         this.cssUrl = cssUrl;
     }
@@ -41,6 +54,7 @@ public class SimpleThemeDecorator extends PageDecorator {
         return cssRules;
     }
 
+    @DataBoundSetter
     public void setCssRules(String cssRules) {
         this.cssRules = cssRules;
     }
@@ -49,6 +63,7 @@ public class SimpleThemeDecorator extends PageDecorator {
         return jsUrl;
     }
 
+    @DataBoundSetter
     public void setJsUrl(String jsUrl) {
         this.jsUrl = jsUrl;
     }
@@ -57,6 +72,7 @@ public class SimpleThemeDecorator extends PageDecorator {
         return faviconUrl;
     }
 
+    @DataBoundSetter
     public void setFaviconUrl(String faviconUrl) {
         this.faviconUrl = faviconUrl;
     }
@@ -88,4 +104,5 @@ public class SimpleThemeDecorator extends PageDecorator {
 
         return true;
     }
+
 }
