@@ -68,4 +68,16 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jenkins-ci.tools</groupId>
+        <artifactId>maven-hpi-plugin</artifactId>
+        <configuration>
+          <compatibleSinceVersion>0.5</compatibleSinceVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
