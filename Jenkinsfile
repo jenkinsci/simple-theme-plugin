@@ -1,3 +1,3 @@
 #!groovy
 
-buildPlugin()
+buildPlugin(jenkinsVersions: [null, '2.107.3'])
