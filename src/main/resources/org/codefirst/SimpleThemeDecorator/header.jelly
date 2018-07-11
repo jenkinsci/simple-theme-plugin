@@ -17,10 +17,7 @@
   <j:if test="${!empty(it.getFaviconUrl())}">
     <script src="${rootURL}/plugin/simple-theme-plugin/simple-theme.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
-      var simpleTheme = window['org.codefirst.simple-theme'];
-      simpleTheme.favicon.replace("${it.getFaviconUrl()}");
-      });
+    window['org.jenkinsci.plugins.simpletheme'].replaceFavicon("${it.getFaviconUrl()}");
     </script>
   </j:if>
 </j:jelly>
