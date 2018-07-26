@@ -2,20 +2,25 @@ package org.codefirst;
 
 import hudson.Extension;
 import hudson.model.PageDecorator;
-import hudson.model.Descriptor;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
+import org.jenkinsci.plugins.simpletheme.ThemeElement;
 import org.kohsuke.stapler.Ancestor;
+import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.DataBoundSetter;
 
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Extension
 @Symbol("simple-theme-plugin")
 public class SimpleThemeDecorator extends PageDecorator {
-    // CASC: PageDecorator extends Descriptor
+
+    private List<ThemeElement> elements = Collections.emptyList();
 
     private String cssUrl;
     private String cssRules;
@@ -30,15 +35,18 @@ public class SimpleThemeDecorator extends PageDecorator {
     @Override
     public boolean configure(StaplerRequest req, JSONObject formData)
             throws FormException {
-        // reset values to default before data-binding
-        this.cssUrl = null;
-        this.cssRules = null;
-        this.jsUrl = null;
-        this.faviconUrl = null;
-
         req.bindJSON(this, formData);
         save();
         return true;
+    }
+
+    public List<ThemeElement> getElements() {
+        return elements;
+    }
+
+    @DataBoundSetter
+    public void setElements(List<ThemeElement> elements) {
+        this.elements = elements;
     }
 
     public String getCssUrl() {
@@ -75,6 +83,18 @@ public class SimpleThemeDecorator extends PageDecorator {
     @DataBoundSetter
     public void setFaviconUrl(String faviconUrl) {
         this.faviconUrl = faviconUrl;
+    }
+
+    /**
+     * Get the complete header HTML for all configured theme elements.
+     */
+    public String getHeaderHtml() {
+        Set<String> data = new LinkedHashSet<>();
+        boolean injectCss = shouldInjectCss();
+        for (ThemeElement element: elements) {
+            element.collectHeaderFragment(data, injectCss);
+        }
+        return StringUtils.join(data, "\n");
     }
 
     /**
