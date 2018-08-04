@@ -5,13 +5,17 @@ import hudson.model.PageDecorator;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
+import org.jenkinsci.plugins.simpletheme.CssTextThemeElement;
+import org.jenkinsci.plugins.simpletheme.CssUrlThemeElement;
+import org.jenkinsci.plugins.simpletheme.FaviconUrlThemeElement;
+import org.jenkinsci.plugins.simpletheme.JsUrlThemeElement;
 import org.jenkinsci.plugins.simpletheme.ThemeElement;
 import org.kohsuke.stapler.Ancestor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,12 +24,12 @@ import java.util.Set;
 @Symbol("simple-theme-plugin")
 public class SimpleThemeDecorator extends PageDecorator {
 
-    private List<ThemeElement> elements = Collections.emptyList();
+    private List<ThemeElement> elements = new ArrayList<>();
 
-    private String cssUrl;
-    private String cssRules;
-    private String jsUrl;
-    private String faviconUrl;
+    private transient String cssUrl;
+    private transient String cssRules;
+    private transient String jsUrl;
+    private transient String faviconUrl;
 
     public SimpleThemeDecorator() {
         super();
@@ -85,6 +89,21 @@ public class SimpleThemeDecorator extends PageDecorator {
         this.faviconUrl = faviconUrl;
     }
 
+    protected Object readResolve() {
+        if (cssUrl != null) {
+            elements.add(new CssUrlThemeElement(cssUrl));
+        }
+        if (cssRules != null) {
+            elements.add(new CssTextThemeElement(cssRules));
+        }
+        if (jsUrl != null) {
+            elements.add(new JsUrlThemeElement(jsUrl));
+        }
+        if (faviconUrl != null) {
+            elements.add(new FaviconUrlThemeElement(faviconUrl));
+        }
+        return this;
+    }
     /**
      * Get the complete header HTML for all configured theme elements.
      */
