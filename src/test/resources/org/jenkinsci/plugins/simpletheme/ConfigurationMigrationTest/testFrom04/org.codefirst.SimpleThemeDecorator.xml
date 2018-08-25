@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.codefirst.SimpleThemeDecorator plugin="simple-theme-plugin@0.4">
+  <cssUrl>https://example.bogus/OLD04.css</cssUrl>
+  <cssRules>OLD04RULES</cssRules>
+  <jsUrl>https://example.bogus/OLD04.js</jsUrl>
+  <faviconUrl>OLDFAV04.png</faviconUrl>
+</org.codefirst.SimpleThemeDecorator>
