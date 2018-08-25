@@ -94,6 +94,20 @@
           <compatibleSinceVersion>0.5</compatibleSinceVersion>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>com.coveo</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+        <version>2.5.1</version>
+        <executions>
+          <!-- Fail build if code is not properly formatted -->
+          <execution>
+            <id>verify-code-style</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
