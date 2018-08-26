@@ -1,14 +1,17 @@
 package org.jenkinsci.plugins.simpletheme;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import hudson.util.VersionNumber;
+import io.jenkins.plugins.casc.misc.ConfiguredWithCode;
+import io.jenkins.plugins.casc.misc.JenkinsConfiguredWithCodeRule;
 import jenkins.model.Jenkins;
 import org.codefirst.SimpleThemeDecorator;
-import org.jenkinsci.plugins.casc.misc.ConfiguredWithCode;
-import org.jenkinsci.plugins.casc.misc.JenkinsConfiguredWithCodeRule;
 import org.junit.Assume;
 import org.junit.BeforeClass;
 import org.junit.Rule;
