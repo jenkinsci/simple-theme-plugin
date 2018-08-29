@@ -9,7 +9,8 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 
 public class CssTextThemeElement extends ThemeElement {
-  private static final String CSS_HTML = "<style type=\"text/css\"><![CDATA[\n{0}\n]]></style>";
+
+  private static final String CSS_HTML = "<style type=\"text/css\">\n{0}\n</style>";
 
   private String text;
 
@@ -18,17 +19,19 @@ public class CssTextThemeElement extends ThemeElement {
     setText(url);
   }
 
+  public String getText() {
+    return text;
+  }
+
   @DataBoundSetter
   public void setText(String text) {
     this.text = text;
   }
 
-  public String getText() {
-    return text;
-  }
-
   @Override
   public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
+    // This is not escaped at all, but not a security issue: If you can use this plugin
+    // to inject CSS, you can also use it to inject extra JavaScript...
     fragments.add(MessageFormat.format(CSS_HTML, getText()));
   }
 
