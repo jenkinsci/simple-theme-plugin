@@ -29,4 +29,15 @@ public class ConfigurationMigrationTest {
             hasProperty("url", containsString("OLD04.js")),
             hasProperty("url", equalTo("OLDFAV04.png"))));
   }
+
+  @Test
+  @LocalData
+  public void testFrom04Empty() throws Exception {
+    j.configRoundtrip();
+    j.waitUntilNoActivity();
+
+    SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
+
+    assertThat(decorator.getElements(), hasSize(0));
+  }
 }

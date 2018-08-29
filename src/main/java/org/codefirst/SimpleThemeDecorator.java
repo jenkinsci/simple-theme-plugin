@@ -88,16 +88,16 @@ public class SimpleThemeDecorator extends PageDecorator {
   }
 
   protected Object readResolve() {
-    if (cssUrl != null) {
+    if (StringUtils.isNotBlank(cssUrl)) {
       elements.add(new CssUrlThemeElement(cssUrl));
     }
-    if (cssRules != null) {
+    if (StringUtils.isNotBlank(cssRules)) {
       elements.add(new CssTextThemeElement(cssRules));
     }
-    if (jsUrl != null) {
+    if (StringUtils.isNotBlank(jsUrl)) {
       elements.add(new JsUrlThemeElement(jsUrl));
     }
-    if (faviconUrl != null) {
+    if (StringUtils.isNotBlank(faviconUrl)) {
       elements.add(new FaviconUrlThemeElement(faviconUrl));
     }
     return this;
