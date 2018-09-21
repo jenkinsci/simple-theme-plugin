@@ -7,8 +7,6 @@ import java.util.Set;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
-import org.kohsuke.stapler.Stapler;
-import org.kohsuke.stapler.StaplerRequest;
 
 public class CssTextThemeElement extends ThemeElement {
 
@@ -34,7 +32,7 @@ public class CssTextThemeElement extends ThemeElement {
   public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
     // This is not escaped at all, but not a security issue: If you can use this plugin
     // to inject CSS, you can also use it to inject extra JavaScript...
-    fragments.add(MessageFormat.format(CSS_HTML, getSafeUrl(getText())));
+    fragments.add(MessageFormat.format(CSS_HTML, getText()));
   }
 
   @Extension
