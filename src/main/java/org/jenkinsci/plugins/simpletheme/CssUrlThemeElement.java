@@ -20,7 +20,7 @@ public class CssUrlThemeElement extends UrlThemeElement {
   @Override
   public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
     if (injectCss) {
-      fragments.add(MessageFormat.format(CSS_HTML, getUrl()));
+      fragments.add(MessageFormat.format(CSS_HTML, getSafeUrl(getUrl())));
     }
   }
 
