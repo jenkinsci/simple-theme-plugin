@@ -3,6 +3,7 @@ package org.jenkinsci.plugins.simpletheme;
 import org.kohsuke.stapler.DataBoundSetter;
 
 public abstract class UrlThemeElement extends ThemeElement {
+
   private String url;
 
   public String getUrl() {

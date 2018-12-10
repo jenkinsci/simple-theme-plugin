@@ -1,6 +1,10 @@
 package org.jenkinsci.plugins.simpletheme;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
 import org.codefirst.SimpleThemeDecorator;
@@ -10,6 +14,7 @@ import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.recipes.LocalData;
 
 public class ConfigurationMigrationTest {
+
   @Rule public JenkinsRule j = new JenkinsRule();
 
   @Test

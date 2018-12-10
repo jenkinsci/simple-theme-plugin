@@ -9,6 +9,7 @@ import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 public class FaviconUrlThemeElement extends UrlThemeElement {
+
   private static final String SCRIPT_INCLUDE =
       "<script src=\"{0}/plugin/simple-theme-plugin/simple-theme.js\"></script>";
   private static final String FAVICON_SCRIPT =

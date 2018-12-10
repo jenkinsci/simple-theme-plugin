@@ -102,6 +102,7 @@ public class SimpleThemeDecorator extends PageDecorator {
     }
     return this;
   }
+
   /** Get the complete header HTML for all configured theme elements. */
   public String getHeaderHtml() {
     Set<String> data = new LinkedHashSet<>();
@@ -133,10 +134,6 @@ public class SimpleThemeDecorator extends PageDecorator {
     Object o = a.getObject();
 
     // We don't want to style the build-monitor-plugin
-    if (o.getClass().getName().startsWith("com.smartcodeltd.jenkinsci.plugins.buildmonitor")) {
-      return false;
-    }
-
-    return true;
+    return !o.getClass().getName().startsWith("com.smartcodeltd.jenkinsci.plugins.buildmonitor");
   }
 }

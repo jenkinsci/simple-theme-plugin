@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 
 public class SimpleThemeConfigurationTest {
+
   @Rule public JenkinsRule j = new JenkinsRule();
 
   @Test
