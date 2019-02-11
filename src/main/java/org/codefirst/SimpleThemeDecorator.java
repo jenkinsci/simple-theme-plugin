@@ -2,11 +2,16 @@ package org.codefirst;
 
 import hudson.Extension;
 import hudson.model.PageDecorator;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
 import net.sf.json.JSONObject;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
 import org.jenkinsci.plugins.simpletheme.CssTextThemeElement;
@@ -30,9 +35,14 @@ public class SimpleThemeDecorator extends PageDecorator {
   private transient String jsUrl;
   private transient String faviconUrl;
 
-  public SimpleThemeDecorator() {
+  public SimpleThemeDecorator() throws IOException {
     super();
     load();
+    if (elements.isEmpty()) {
+      InputStream s = SimpleThemeDecorator.class.getClassLoader().getResourceAsStream("default-theme.css");
+      String css = IOUtils.toString(s);
+      elements.add(new CssTextThemeElement(css));
+    }
   }
 
   @Override
