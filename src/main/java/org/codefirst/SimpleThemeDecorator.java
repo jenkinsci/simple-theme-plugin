@@ -2,14 +2,12 @@ package org.codefirst;
 
 import hudson.Extension;
 import hudson.model.PageDecorator;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -34,15 +32,12 @@ public class SimpleThemeDecorator extends PageDecorator {
   private transient String cssRules;
   private transient String jsUrl;
   private transient String faviconUrl;
+  private transient String defaultCSS;
 
-  public SimpleThemeDecorator() throws IOException {
+  public SimpleThemeDecorator() {
     super();
     load();
-    if (elements.isEmpty()) {
-      InputStream s = SimpleThemeDecorator.class.getClassLoader().getResourceAsStream("default-theme.css");
-      String css = IOUtils.toString(s);
-      elements.add(new CssTextThemeElement(css));
-    }
+    defaultCSS = getDefaultCSS();
   }
 
   @Override
@@ -120,7 +115,23 @@ public class SimpleThemeDecorator extends PageDecorator {
     for (ThemeElement element : elements) {
       element.collectHeaderFragment(data, injectCss);
     }
+
+    if (elements.isEmpty() && defaultCSS != null) {
+      (new CssTextThemeElement(defaultCSS)).collectHeaderFragment(data, injectCss);
+    }
+
     return StringUtils.join(data, "\n");
+  }
+
+  private String getDefaultCSS() {
+    InputStream s =
+        SimpleThemeDecorator.class.getClassLoader().getResourceAsStream("default-theme.css");
+    try {
+      return IOUtils.toString(s);
+    } catch (IOException e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   /**
