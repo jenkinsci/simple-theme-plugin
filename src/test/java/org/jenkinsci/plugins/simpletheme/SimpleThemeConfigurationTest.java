@@ -1,7 +1,9 @@
 package org.jenkinsci.plugins.simpletheme;
 
 import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresentByXPath;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
@@ -32,6 +34,26 @@ public class SimpleThemeConfigurationTest {
 
     assertNotNull(decorator.getElements());
     assertThat(decorator.getElements(), hasSize(4));
+  }
+
+  @Test
+  public void testDefaultCSS() throws Exception {
+    SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
+    assertThat(decorator.getElements(), hasSize(0));
+
+    String header = decorator.getHeaderHtml();
+    assertThat(header, containsString("@import url"));
+  }
+
+  @Test
+  public void testDefaultOverrideCSS() throws Exception {
+    SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
+    decorator.getElements().add(new CssTextThemeElement("ignore"));
+
+    String header = decorator.getHeaderHtml();
+    assertThat(header, containsString("ignore"));
+
+    assertThat(header, not(containsString("@import url")));
   }
 
   @Test
