@@ -7,19 +7,22 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-import io.jenkins.plugins.casc.misc.ConfiguredWithCode;
-import io.jenkins.plugins.casc.misc.JenkinsConfiguredWithCodeRule;
+import io.jenkins.plugins.casc.ConfigurationAsCode;
+import io.jenkins.plugins.casc.ConfiguratorException;
 import org.codefirst.SimpleThemeDecorator;
 import org.junit.Rule;
 import org.junit.Test;
+import org.jvnet.hudson.test.JenkinsRule;
 
 public class ConfigurationAsCodeTest {
 
-  @Rule public JenkinsConfiguredWithCodeRule j = new JenkinsConfiguredWithCodeRule();
+  @Rule public JenkinsRule j = new JenkinsRule();
 
   @Test
-  @ConfiguredWithCode("ConfigurationAsCode.yml")
-  public void testConfig() {
+  public void testConfig() throws ConfiguratorException {
+    ConfigurationAsCode.get()
+        .configure(ConfigurationAsCodeTest.class.getResource("ConfigurationAsCode.yml").toString());
+
     SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
 
     assertNotNull(decorator.getElements());
