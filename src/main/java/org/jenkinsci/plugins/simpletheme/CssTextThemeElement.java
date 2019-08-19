@@ -15,8 +15,8 @@ public class CssTextThemeElement extends ThemeElement {
   private String text;
 
   @DataBoundConstructor
-  public CssTextThemeElement(String url) {
-    setText(url);
+  public CssTextThemeElement(String text) {
+    setText(text);
   }
 
   public String getText() {
