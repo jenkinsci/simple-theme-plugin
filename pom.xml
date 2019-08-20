@@ -44,6 +44,7 @@
     <revision>0.6</revision>
     <changelist>-SNAPSHOT</changelist>
     <jenkins.version>2.60.3</jenkins.version>
+    <configuration-as-code.version>1.27</configuration-as-code.version>
     <java.level>8</java.level>
   </properties>
 
@@ -58,7 +59,14 @@
     <dependency>
       <groupId>io.jenkins</groupId>
       <artifactId>configuration-as-code</artifactId>
-      <version>1.8</version>
+      <version>${configuration-as-code.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins</groupId>
+      <artifactId>configuration-as-code</artifactId>
+      <version>${configuration-as-code.version}</version>
+      <type>test-jar</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
