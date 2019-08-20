@@ -25,10 +25,10 @@ public class SimpleThemeDecorator extends PageDecorator {
 
   private List<ThemeElement> elements = new ArrayList<>();
 
-  private transient String cssUrl;
-  private transient String cssRules;
-  private transient String jsUrl;
-  private transient String faviconUrl;
+  @Deprecated private transient String cssUrl;
+  @Deprecated private transient String cssRules;
+  @Deprecated private transient String jsUrl;
+  @Deprecated private transient String faviconUrl;
 
   public SimpleThemeDecorator() {
     super();
@@ -51,42 +51,51 @@ public class SimpleThemeDecorator extends PageDecorator {
     this.elements = elements;
   }
 
+  @Deprecated
   public String getCssUrl() {
     return cssUrl;
   }
 
   @DataBoundSetter
+  @Deprecated
   public void setCssUrl(String cssUrl) {
     this.cssUrl = cssUrl;
   }
 
+  @Deprecated
   public String getCssRules() {
     return cssRules;
   }
 
   @DataBoundSetter
+  @Deprecated
   public void setCssRules(String cssRules) {
     this.cssRules = cssRules;
   }
 
+  @Deprecated
   public String getJsUrl() {
     return jsUrl;
   }
 
   @DataBoundSetter
+  @Deprecated
   public void setJsUrl(String jsUrl) {
     this.jsUrl = jsUrl;
   }
 
+  @Deprecated
   public String getFaviconUrl() {
     return faviconUrl;
   }
 
   @DataBoundSetter
+  @Deprecated
   public void setFaviconUrl(String faviconUrl) {
     this.faviconUrl = faviconUrl;
   }
 
+  @SuppressWarnings("deprecation")
   protected Object readResolve() {
     if (StringUtils.isNotBlank(cssUrl)) {
       elements.add(new CssUrlThemeElement(cssUrl));
