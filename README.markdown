@@ -64,3 +64,9 @@ The MIT License (MIT)
 - Copyright (c) 2018 TobiX
 
 See [LICENSE](LICENSE)
+
+## Changelog
+
+* See [GitHub Releases](https://github.com/jenkinsci/simple-theme-plugin/releases) for the recent versions
+* See the [plugin's Wiki page](https://wiki.jenkins.io/display/JENKINS/Simple+Theme+Plugin) for versions 0.5.1 and older
+
