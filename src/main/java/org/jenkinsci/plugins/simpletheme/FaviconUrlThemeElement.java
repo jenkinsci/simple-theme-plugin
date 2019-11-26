@@ -24,7 +24,8 @@ public class FaviconUrlThemeElement extends UrlThemeElement {
 
   @Override
   public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
-    fragments.add(MessageFormat.format(SCRIPT_INCLUDE, Jenkins.getActiveInstance().getRootUrl()));
+    fragments.add(
+        MessageFormat.format(SCRIPT_INCLUDE, Jenkins.getInstance().getRootUrlFromRequest()));
     fragments.add(MessageFormat.format(FAVICON_SCRIPT, getUrl()));
   }
 
