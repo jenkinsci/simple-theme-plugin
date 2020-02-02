@@ -21,15 +21,17 @@ Some themes can be found on GitHub:
 
 ## Contributing
 
-If you want to contribute to this plugin, you probably will need a Jenkins plugin developement
-environment. This basically means a current version of Java (Java 8 should probably be okay for now)
-and [Apache Maven]. See the [Jenkins Plugin Tutorial] for details.
+If you want to contribute to this plugin, you probably will need a Jenkins
+plugin developement environment. This basically means a current version of Java
+(Java 8 should probably be okay for now) and [Apache Maven]. See the [Jenkins
+Plugin Tutorial] for details.
 
 If you have the proper environment, typing:
 
     $ mvn verify
 
-should create a plugin as `target/*.hpi`, which you can install in your Jenkins instance. Running
+should create a plugin as `target/*.hpi`, which you can install in your Jenkins
+instance. Running
 
     $ mvn hpi:run -Djenkins.version=2.107.3
 
@@ -61,12 +63,12 @@ to reformat all Java code in the proper style.
 The MIT License (MIT)
 
 - Copyright (c) 2011 mallowlabs
-- Copyright (c) 2018 TobiX
+- Copyright (c) 2018-2020 TobiX
 
 See [LICENSE](LICENSE)
 
 ## Changelog
 
 * See [GitHub Releases](https://github.com/jenkinsci/simple-theme-plugin/releases) for the recent versions
-* See the [plugin's Wiki page](https://wiki.jenkins.io/display/JENKINS/Simple+Theme+Plugin) for versions 0.5.1 and older
+* See the [old changelog](CHANGELOG.old.md) for versions 0.5.1 and older
 
