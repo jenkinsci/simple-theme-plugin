@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>simple-theme-plugin</artifactId>
-  <version>0.6</version>
+  <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
@@ -37,11 +37,11 @@
     <connection>scm:git:ssh://github.com/jenkinsci/${project.artifactId}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}.git</developerConnection>
     <url>https://github.com/jenkinsci/${project.artifactId}</url>
-    <tag>simple-theme-plugin-0.6</tag>
+    <tag>${scmTag}</tag>
   </scm>
 
   <properties>
-    <revision>0.6</revision>
+    <revision>0.7</revision>
     <changelist>-SNAPSHOT</changelist>
     <jenkins.version>2.121.3</jenkins.version>
     <configuration-as-code.version>1.27</configuration-as-code.version>
