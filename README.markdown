@@ -1,5 +1,12 @@
 # Simple Theme Plugin for Jenkins
 
+[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/simple-theme-plugin.svg)](https://plugins.jenkins.io/simple-theme-plugin)
+[![GitHub release](https://img.shields.io/github/release/jenkinsci/simple-theme-plugin.svg?label=release)](https://github.com/jenkinsci/simple-theme-plugin/releases/latest)
+[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/simple-theme-plugin.svg?color=blue)](https://plugins.jenkins.io/simple-theme-plugin)
+[![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins%2Fsimple-theme-plugin%2Fmaster)](https://ci.jenkins.io/job/Plugins/job/simple-theme-plugin/job/master/)
+[![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin.svg)](https://github.com/jenkinsci/simple-theme-plugin/blob/master/LICENSE.txt)
+[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)]()
+
 This plugin allows to customize Jenkin's appearance with custom
 CSS and JavaScript. It also allows to replace the Favicon.
 
