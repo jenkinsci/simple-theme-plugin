@@ -38,8 +38,7 @@ public class SimpleThemeDecorator extends PageDecorator {
   @Override
   public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
     req.bindJSON(this, formData);
-    if (!formData.containsKey("elements"))
-    {
+    if (!formData.containsKey("elements")) {
       elements.clear();
     }
     save();
