@@ -45,13 +45,13 @@ public class ThemeUserProperty extends UserProperty {
 
     @Override
     public boolean isEnabled() {
-      return !ThemeManagerPageDecorator.get().getDisableUserThemes();
+      return !ThemeManagerPageDecorator.get().isDisableUserThemes();
     }
 
     @NonNull
     @Override
     public String getDisplayName() {
-      return "Theme";
+      return "Built-in Themes";
     }
 
     @Override

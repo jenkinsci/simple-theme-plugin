@@ -7,8 +7,26 @@
 [![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin.svg)](https://github.com/jenkinsci/simple-theme-plugin/blob/master/LICENSE.txt)
 [![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)]()
 
-This plugin allows to customize Jenkin's appearance with custom
-CSS and JavaScript. It also allows to replace the Favicon.
+This plugin allows customizing Jenkins' appearance with themes.
+
+## Built-in theme plugins
+
+Recently we have added support for selecting themes inside Jenkins via theme plugins.
+
+These can be configured at a global level, or a user level.
+
+Search for 'Built-in Themes' on the global configuration page, or the user configuration page.
+
+_Note: it is possible for an admin to disable user level themes via the 'Disable user theme override' option._
+
+Available plugins:
+
+- [dark theme](https://github.com/jenkinsci/dark-theme)
+
+
+### Adding a new built-in theme
+
+See the [built-in theme](docs/built-in-theme.md) developer guide.
 
 ## Themes
 
