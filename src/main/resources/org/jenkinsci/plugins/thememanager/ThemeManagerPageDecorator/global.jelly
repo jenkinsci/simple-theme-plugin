@@ -1,0 +1,13 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+  <f:section title="${%Theme}">
+    <j:invokeStatic var="descriptors" className="org.jenkinsci.plugins.thememanager.ThemeManagerFactoryDescriptor" method="all"/>
+    <f:entry title="${%Theme}">
+      <f:hetero-radio field="theme" descriptors="${descriptors}"/>
+    </f:entry>
+    
+    <f:entry field="userThemeAllowed">
+      <f:checkbox title="${%User theme allowed}" default="checked" />
+    </f:entry>
+  </f:section>
+</j:jelly>

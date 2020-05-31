@@ -1,0 +1,8 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+  <j:invokeStatic var="descriptors" className="org.jenkinsci.plugins.thememanager.ThemeManagerFactoryDescriptor"
+                  method="all"/>
+  <f:entry title="${%Theme}">
+    <f:hetero-radio field="theme" descriptors="${descriptors}"/>
+  </f:entry>
+</j:jelly>

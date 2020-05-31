@@ -1,0 +1,4 @@
+<?jelly escape-by-default='false'?>
+<j:jelly xmlns:j="jelly:core">
+  ${it.getHeaderHtml()}
+</j:jelly>
