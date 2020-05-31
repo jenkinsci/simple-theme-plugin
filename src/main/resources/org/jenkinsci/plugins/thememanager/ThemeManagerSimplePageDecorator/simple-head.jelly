@@ -1,0 +1,9 @@
+<?jelly escape-by-default='false'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler">
+  <j:new var="h" className="hudson.Functions"/>
+  <!-- Load the default styles -->
+  <st:include it="${h.simplePageDecorators.get(h.simplePageDecorators.size() - 1)}" 
+              page="simple-head.jelly"
+              optional="true"/>
+  ${it.getHeaderHtml()}
+</j:jelly>
