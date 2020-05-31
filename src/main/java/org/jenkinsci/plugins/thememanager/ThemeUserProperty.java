@@ -45,7 +45,7 @@ public class ThemeUserProperty extends UserProperty {
 
     @Override
     public boolean isEnabled() {
-      return ThemeManagerPageDecorator.get().isUserThemeAllowed();
+      return !ThemeManagerPageDecorator.get().getDisableUserThemes();
     }
 
     @NonNull

@@ -128,7 +128,7 @@ public class SimpleThemeDecorator extends PageDecorator {
    *
    * @return true if it is okay to inject CSS
    */
-  public boolean shouldInjectCss() {
+  public static boolean shouldInjectCss() {
     StaplerRequest req = Stapler.getCurrentRequest();
     if (req == null) {
       return false;

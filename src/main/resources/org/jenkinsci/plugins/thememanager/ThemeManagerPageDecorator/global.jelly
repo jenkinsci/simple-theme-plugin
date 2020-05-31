@@ -1,13 +1,13 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
-  <f:section title="${%Theme}">
+  <f:section title="${%Built-in Themes}">
     <j:invokeStatic var="descriptors" className="org.jenkinsci.plugins.thememanager.ThemeManagerFactoryDescriptor" method="all"/>
     <f:entry title="${%Theme}">
       <f:hetero-radio field="theme" descriptors="${descriptors}"/>
     </f:entry>
     
-    <f:entry field="userThemeAllowed">
-      <f:checkbox title="${%User theme allowed}" default="checked" />
+    <f:entry field="disableUserThemes">
+      <f:checkbox title="${%Disable user theme override}" />
     </f:entry>
   </f:section>
 </j:jelly>
