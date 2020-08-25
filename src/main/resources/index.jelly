@@ -3,6 +3,6 @@
   This view is used to render the installed plugins page.
 -->
 <div>
-  This plugin allows to customize Jenkin's appearance with custom
+  This plugin allows to customize Jenkins' appearance with custom
   CSS and JavaScript. It also allows to replace the Favicon.
 </div>
