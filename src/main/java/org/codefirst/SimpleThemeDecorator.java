@@ -37,6 +37,7 @@ public class SimpleThemeDecorator extends PageDecorator {
 
   @Override
   public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+    elements.clear();
     req.bindJSON(this, formData);
     save();
     return true;
