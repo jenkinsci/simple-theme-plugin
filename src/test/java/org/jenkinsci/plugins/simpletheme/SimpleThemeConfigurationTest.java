@@ -1,9 +1,9 @@
 package org.jenkinsci.plugins.simpletheme;
 
 import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresentByXPath;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
 
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
