@@ -44,7 +44,7 @@
     <revision>0.7</revision>
     <changelist>-SNAPSHOT</changelist>
     <jenkins.version>2.121.3</jenkins.version>
-    <configuration-as-code.version>1.27</configuration-as-code.version>
+    <configuration-as-code.version>1.51</configuration-as-code.version>
     <java.level>8</java.level>
   </properties>
 
