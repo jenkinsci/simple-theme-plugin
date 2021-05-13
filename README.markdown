@@ -5,10 +5,13 @@
 [![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/simple-theme-plugin.svg?color=blue)](https://plugins.jenkins.io/simple-theme-plugin)
 [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins%2Fsimple-theme-plugin%2Fmaster)](https://ci.jenkins.io/job/Plugins/job/simple-theme-plugin/job/master/)
 [![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin.svg)](https://github.com/jenkinsci/simple-theme-plugin/blob/master/LICENSE.txt)
-[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg)]()
 
 This plugin allows to customize Jenkin's appearance with custom
 CSS and JavaScript. It also allows to replace the Favicon.
+
+For a more user-centric approch to theming, take a look at the
+[Theme Manager](https://plugins.jenkins.io/theme-manager/) plugin.
 
 ## Themes
 
