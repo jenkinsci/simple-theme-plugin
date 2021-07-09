@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>simple-theme-plugin</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>0.7</version>
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
@@ -37,7 +37,7 @@
     <connection>scm:git:ssh://github.com/${gitHubRepo}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/${gitHubRepo}.git</developerConnection>
     <url>https://github.com/${gitHubRepo}</url>
-    <tag>${scmTag}</tag>
+    <tag>simple-theme-plugin-0.7</tag>
   </scm>
 
   <properties>
