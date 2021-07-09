@@ -34,15 +34,16 @@
   </developers>
 
   <scm>
-    <connection>scm:git:ssh://github.com/jenkinsci/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}.git</developerConnection>
-    <url>https://github.com/jenkinsci/${project.artifactId}</url>
+    <connection>scm:git:ssh://github.com/${gitHubRepo}.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/${gitHubRepo}.git</developerConnection>
+    <url>https://github.com/${gitHubRepo}</url>
     <tag>${scmTag}</tag>
   </scm>
 
   <properties>
     <revision>0.7</revision>
     <changelist>-SNAPSHOT</changelist>
+    <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
     <jenkins.version>2.204</jenkins.version>
     <configuration-as-code.version>1.36</configuration-as-code.version>
     <java.level>8</java.level>
