@@ -23,6 +23,7 @@ Some themes can be found on GitHub:
 - [Material](http://afonsof.com/jenkins-material-theme/)
 - [Neo2](https://tobix.github.io/jenkins-neo2-theme/)
 - [Rackspace Canon](https://github.com/rackerlabs/canon-jenkins)
+- [Color Weather Icons](https://github.com/APEdevelopment/jenkins-colour-weather-icons)
 
 ## Authors
 
