@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>simple-theme-plugin</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>${changelist}</version>
   <packaging>hpi</packaging>
 
   <name>Simple Theme Plugin</name>
@@ -41,8 +41,7 @@
   </scm>
 
   <properties>
-    <revision>0.8</revision>
-    <changelist>-SNAPSHOT</changelist>
+    <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
     <jenkins.version>2.204</jenkins.version>
     <configuration-as-code.version>1.36</configuration-as-code.version>

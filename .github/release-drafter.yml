@@ -1,2 +1,1 @@
 _extends: .github
-tag-template: simple-theme-plugin-$NEXT_MINOR_VERSION
