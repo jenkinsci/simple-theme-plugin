@@ -45,7 +45,7 @@
     <changelist>-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
     <jenkins.version>2.204</jenkins.version>
-    <configuration-as-code.version>1.36</configuration-as-code.version>
+    <configuration-as-code.version>1346.ve8cfa_3473c94</configuration-as-code.version>
     <java.level>8</java.level>
   </properties>
 
