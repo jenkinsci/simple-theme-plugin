@@ -15,8 +15,7 @@
 
   <name>Simple Theme Plugin</name>
   <description>This plugin allows to customize Jenkin's appearance with custom
-    CSS and JavaScript. It also allows to replace the Favicon.
-  </description>
+    CSS and JavaScript. It also allows to replace the Favicon.</description>
   <url>https://github.com/jenkinsci/simple-theme-plugin</url>
   <licenses>
     <license>
@@ -36,8 +35,8 @@
   <scm>
     <connection>scm:git:ssh://github.com/${gitHubRepo}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/${gitHubRepo}.git</developerConnection>
-    <url>https://github.com/${gitHubRepo}</url>
     <tag>${scmTag}</tag>
+    <url>https://github.com/${gitHubRepo}</url>
   </scm>
 
   <properties>
@@ -94,13 +93,31 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.coveo</groupId>
-        <artifactId>fmt-maven-plugin</artifactId>
-        <version>2.9.1</version>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.20.1</version>
+        <configuration>
+          <!-- get better with time -->
+          <ratchetFrom>origin/main</ratchetFrom>
+          <java>
+            <endWithNewline />
+            <importOrder />
+            <removeUnusedImports />
+            <googleJavaFormat>
+              <!-- Last version that supports Java 8, the plugin does handle this internally
+              but it will give different versions based off of the JVM version, not good for CI -->
+              <version>1.7</version>
+            </googleJavaFormat>
+          </java>
+          <pom>
+            <sortPom>
+              <expandEmptyElements>false</expandEmptyElements>
+              <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+            </sortPom>
+          </pom>
+        </configuration>
         <executions>
-          <!-- Fail build if code is not properly formatted -->
           <execution>
-            <id>verify-code-style</id>
             <goals>
               <goal>check</goal>
             </goals>
