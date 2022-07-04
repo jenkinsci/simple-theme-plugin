@@ -43,7 +43,7 @@
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
     <jenkins.version>2.289.3</jenkins.version>
-    <configuration-as-code.version>1414.v878271fc496f</configuration-as-code.version>
+    <configuration-as-code.version>1464.vd8507b_82e41a_</configuration-as-code.version>
   </properties>
 
   <dependencies>
