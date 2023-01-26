@@ -89,17 +89,11 @@
         <artifactId>spotless-maven-plugin</artifactId>
         <version>2.30.0</version>
         <configuration>
-          <!-- get better with time -->
-          <ratchetFrom>origin/main</ratchetFrom>
           <java>
             <endWithNewline />
             <importOrder />
             <removeUnusedImports />
-            <googleJavaFormat>
-              <!-- Last version that supports Java 8, the plugin does handle this internally
-              but it will give different versions based off of the JVM version, not good for CI -->
-              <version>1.7</version>
-            </googleJavaFormat>
+            <googleJavaFormat />
           </java>
           <pom>
             <sortPom>
@@ -111,8 +105,10 @@
         <executions>
           <execution>
             <goals>
+              <!-- Can be disabled using -Dspotless.check.skip -->
               <goal>check</goal>
             </goals>
+            <phase>validate</phase>
           </execution>
         </executions>
       </plugin>
