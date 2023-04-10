@@ -4,14 +4,14 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 public abstract class UrlThemeElement extends ThemeElement {
 
-  private String url;
+    private String url;
 
-  public String getUrl() {
-    return url;
-  }
+    public String getUrl() {
+        return url;
+    }
 
-  @DataBoundSetter
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    @DataBoundSetter
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

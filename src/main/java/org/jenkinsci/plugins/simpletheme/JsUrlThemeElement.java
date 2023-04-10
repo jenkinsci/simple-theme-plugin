@@ -9,25 +9,25 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 public class JsUrlThemeElement extends UrlThemeElement {
 
-  private static final String JS_HTML = "<script type=\"text/javascript\" src=\"{0}\"></script>";
+    private static final String JS_HTML = "<script type=\"text/javascript\" src=\"{0}\"></script>";
 
-  @DataBoundConstructor
-  public JsUrlThemeElement(String url) {
-    setUrl(url);
-  }
-
-  @Override
-  public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
-    fragments.add(MessageFormat.format(JS_HTML, getUrl()));
-  }
-
-  @Extension
-  @Symbol("jsUrl")
-  public static final class DescriptorImpl extends Descriptor<ThemeElement> {
+    @DataBoundConstructor
+    public JsUrlThemeElement(String url) {
+        setUrl(url);
+    }
 
     @Override
-    public String getDisplayName() {
-      return Messages.jsURL();
+    public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
+        fragments.add(MessageFormat.format(JS_HTML, getUrl()));
     }
-  }
+
+    @Extension
+    @Symbol("jsUrl")
+    public static final class DescriptorImpl extends Descriptor<ThemeElement> {
+
+        @Override
+        public String getDisplayName() {
+            return Messages.jsURL();
+        }
+    }
 }
