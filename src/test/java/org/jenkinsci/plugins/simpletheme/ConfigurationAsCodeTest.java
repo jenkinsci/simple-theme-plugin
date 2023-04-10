@@ -22,34 +22,34 @@ import org.junit.Test;
 
 public class ConfigurationAsCodeTest {
 
-  @ClassRule
-  @ConfiguredWithCode("ConfigurationAsCode.yml")
-  public static JenkinsConfiguredWithCodeRule j = new JenkinsConfiguredWithCodeRule();
+    @ClassRule
+    @ConfiguredWithCode("ConfigurationAsCode.yml")
+    public static JenkinsConfiguredWithCodeRule j = new JenkinsConfiguredWithCodeRule();
 
-  @Test
-  public void testConfig() {
-    SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
+    @Test
+    public void testConfig() {
+        SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
 
-    assertNotNull(decorator.getElements());
-    assertThat(decorator.getElements(), hasSize(4));
-    assertThat(
-        decorator.getElements(),
-        containsInAnyOrder(
-            hasProperty("url", containsString("test.css")),
-            hasProperty("text", containsString(".testcss")),
-            hasProperty("url", containsString("test.js")),
-            hasProperty("url", containsString("Favicon.ico"))));
-  }
+        assertNotNull(decorator.getElements());
+        assertThat(decorator.getElements(), hasSize(4));
+        assertThat(
+                decorator.getElements(),
+                containsInAnyOrder(
+                        hasProperty("url", containsString("test.css")),
+                        hasProperty("text", containsString(".testcss")),
+                        hasProperty("url", containsString("test.js")),
+                        hasProperty("url", containsString("Favicon.ico"))));
+    }
 
-  @Test
-  public void testExport() throws Exception {
-    ConfigurationContext context = new ConfigurationContext(ConfiguratorRegistry.get());
-    CNode yourAttribute = getUnclassifiedRoot(context).get("simple-theme-plugin");
+    @Test
+    public void testExport() throws Exception {
+        ConfigurationContext context = new ConfigurationContext(ConfiguratorRegistry.get());
+        CNode yourAttribute = getUnclassifiedRoot(context).get("simple-theme-plugin");
 
-    String exported = toYamlString(yourAttribute);
+        String exported = toYamlString(yourAttribute);
 
-    String expected = toStringFromYamlFile(this, "ConfigurationAsCodeExport.yml");
+        String expected = toStringFromYamlFile(this, "ConfigurationAsCodeExport.yml");
 
-    assertThat(exported, is(expected));
-  }
+        assertThat(exported, is(expected));
+    }
 }

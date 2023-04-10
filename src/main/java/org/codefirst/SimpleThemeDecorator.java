@@ -23,127 +23,134 @@ import org.kohsuke.stapler.StaplerRequest;
 @Symbol("simple-theme-plugin")
 public class SimpleThemeDecorator extends PageDecorator {
 
-  private List<ThemeElement> elements = new ArrayList<>();
+    private List<ThemeElement> elements = new ArrayList<>();
 
-  @Deprecated private transient String cssUrl;
-  @Deprecated private transient String cssRules;
-  @Deprecated private transient String jsUrl;
-  @Deprecated private transient String faviconUrl;
+    @Deprecated
+    private transient String cssUrl;
 
-  public SimpleThemeDecorator() {
-    super();
-    load();
-  }
+    @Deprecated
+    private transient String cssRules;
 
-  @Override
-  public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
-    elements.clear();
-    req.bindJSON(this, formData);
-    save();
-    return true;
-  }
+    @Deprecated
+    private transient String jsUrl;
 
-  public List<ThemeElement> getElements() {
-    return elements;
-  }
+    @Deprecated
+    private transient String faviconUrl;
 
-  @DataBoundSetter
-  public void setElements(List<ThemeElement> elements) {
-    this.elements = elements;
-  }
-
-  @Deprecated
-  public String getCssUrl() {
-    return cssUrl;
-  }
-
-  @DataBoundSetter
-  @Deprecated
-  public void setCssUrl(String cssUrl) {
-    this.cssUrl = cssUrl;
-  }
-
-  @Deprecated
-  public String getCssRules() {
-    return cssRules;
-  }
-
-  @DataBoundSetter
-  @Deprecated
-  public void setCssRules(String cssRules) {
-    this.cssRules = cssRules;
-  }
-
-  @Deprecated
-  public String getJsUrl() {
-    return jsUrl;
-  }
-
-  @DataBoundSetter
-  @Deprecated
-  public void setJsUrl(String jsUrl) {
-    this.jsUrl = jsUrl;
-  }
-
-  @Deprecated
-  public String getFaviconUrl() {
-    return faviconUrl;
-  }
-
-  @DataBoundSetter
-  @Deprecated
-  public void setFaviconUrl(String faviconUrl) {
-    this.faviconUrl = faviconUrl;
-  }
-
-  @SuppressWarnings("deprecation")
-  protected Object readResolve() {
-    if (StringUtils.isNotBlank(cssUrl)) {
-      elements.add(new CssUrlThemeElement(cssUrl));
-    }
-    if (StringUtils.isNotBlank(cssRules)) {
-      elements.add(new CssTextThemeElement(cssRules));
-    }
-    if (StringUtils.isNotBlank(jsUrl)) {
-      elements.add(new JsUrlThemeElement(jsUrl));
-    }
-    if (StringUtils.isNotBlank(faviconUrl)) {
-      elements.add(new FaviconUrlThemeElement(faviconUrl));
-    }
-    return this;
-  }
-
-  /** Get the complete header HTML for all configured theme elements. */
-  public String getHeaderHtml() {
-    Set<String> data = new LinkedHashSet<>();
-    boolean injectCss = shouldInjectCss();
-    for (ThemeElement element : elements) {
-      element.collectHeaderFragment(data, injectCss);
-    }
-    return StringUtils.join(data, "\n");
-  }
-
-  /**
-   * Filter to only inject CSS into "normal" Jenkins pages. Some plugins replace the whole layout of
-   * Jenkins and we don't want to disturb them.
-   *
-   * @return true if it is okay to inject CSS
-   */
-  public boolean shouldInjectCss() {
-    StaplerRequest req = Stapler.getCurrentRequest();
-    if (req == null) {
-      return false;
+    public SimpleThemeDecorator() {
+        super();
+        load();
     }
 
-    List<Ancestor> ancestors = req.getAncestors();
-    if (ancestors == null || ancestors.size() == 0) {
-      return false;
+    @Override
+    public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+        elements.clear();
+        req.bindJSON(this, formData);
+        save();
+        return true;
     }
 
-    Ancestor a = ancestors.get(ancestors.size() - 1);
-    Object o = a.getObject();
+    public List<ThemeElement> getElements() {
+        return elements;
+    }
 
-    // We don't want to style the build-monitor-plugin
-    return !o.getClass().getName().startsWith("com.smartcodeltd.jenkinsci.plugins.buildmonitor");
-  }
+    @DataBoundSetter
+    public void setElements(List<ThemeElement> elements) {
+        this.elements = elements;
+    }
+
+    @Deprecated
+    public String getCssUrl() {
+        return cssUrl;
+    }
+
+    @DataBoundSetter
+    @Deprecated
+    public void setCssUrl(String cssUrl) {
+        this.cssUrl = cssUrl;
+    }
+
+    @Deprecated
+    public String getCssRules() {
+        return cssRules;
+    }
+
+    @DataBoundSetter
+    @Deprecated
+    public void setCssRules(String cssRules) {
+        this.cssRules = cssRules;
+    }
+
+    @Deprecated
+    public String getJsUrl() {
+        return jsUrl;
+    }
+
+    @DataBoundSetter
+    @Deprecated
+    public void setJsUrl(String jsUrl) {
+        this.jsUrl = jsUrl;
+    }
+
+    @Deprecated
+    public String getFaviconUrl() {
+        return faviconUrl;
+    }
+
+    @DataBoundSetter
+    @Deprecated
+    public void setFaviconUrl(String faviconUrl) {
+        this.faviconUrl = faviconUrl;
+    }
+
+    @SuppressWarnings("deprecation")
+    protected Object readResolve() {
+        if (StringUtils.isNotBlank(cssUrl)) {
+            elements.add(new CssUrlThemeElement(cssUrl));
+        }
+        if (StringUtils.isNotBlank(cssRules)) {
+            elements.add(new CssTextThemeElement(cssRules));
+        }
+        if (StringUtils.isNotBlank(jsUrl)) {
+            elements.add(new JsUrlThemeElement(jsUrl));
+        }
+        if (StringUtils.isNotBlank(faviconUrl)) {
+            elements.add(new FaviconUrlThemeElement(faviconUrl));
+        }
+        return this;
+    }
+
+    /** Get the complete header HTML for all configured theme elements. */
+    public String getHeaderHtml() {
+        Set<String> data = new LinkedHashSet<>();
+        boolean injectCss = shouldInjectCss();
+        for (ThemeElement element : elements) {
+            element.collectHeaderFragment(data, injectCss);
+        }
+        return StringUtils.join(data, "\n");
+    }
+
+    /**
+     * Filter to only inject CSS into "normal" Jenkins pages. Some plugins replace the whole layout of
+     * Jenkins and we don't want to disturb them.
+     *
+     * @return true if it is okay to inject CSS
+     */
+    public boolean shouldInjectCss() {
+        StaplerRequest req = Stapler.getCurrentRequest();
+        if (req == null) {
+            return false;
+        }
+
+        List<Ancestor> ancestors = req.getAncestors();
+        if (ancestors == null || ancestors.size() == 0) {
+            return false;
+        }
+
+        Ancestor a = ancestors.get(ancestors.size() - 1);
+        Object o = a.getObject();
+
+        // We don't want to style the build-monitor-plugin
+        return !o.getClass().getName().startsWith("com.smartcodeltd.jenkinsci.plugins.buildmonitor");
+    }
 }
