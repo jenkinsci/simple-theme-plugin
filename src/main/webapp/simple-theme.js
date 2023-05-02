@@ -7,7 +7,8 @@
 
         for (i = 0; i < links.length; i++) {
             link = links[i];
-            if (link.rel === 'shortcut icon' || link.rel === 'icon') {
+            if (link.rel === 'shortcut icon' || link.rel === 'icon'
+                    || link.rel === 'alternate icon') {
                 link.parentNode.removeChild(link);
             }
         }
