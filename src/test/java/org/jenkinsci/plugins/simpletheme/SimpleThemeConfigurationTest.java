@@ -1,18 +1,18 @@
 package org.jenkinsci.plugins.simpletheme;
 
-import static com.gargoylesoftware.htmlunit.WebAssert.assertElementPresentByXPath;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
+import static org.htmlunit.WebAssert.assertElementPresentByXPath;
 import static org.junit.Assert.assertNotNull;
 
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 import java.util.ArrayList;
 import java.util.List;
 import org.codefirst.SimpleThemeDecorator;
+import org.htmlunit.html.HtmlElement;
+import org.htmlunit.html.HtmlForm;
+import org.htmlunit.html.HtmlInput;
+import org.htmlunit.html.HtmlPage;
+import org.htmlunit.html.HtmlTextArea;
 import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -43,10 +43,10 @@ public class SimpleThemeConfigurationTest {
         HtmlPage configPage = j.createWebClient().goTo("configure");
         HtmlForm form = configPage.getFormByName("config");
 
-        urlThemeInput(form, CssUrlThemeElement.class).setValueAttribute("SOMECSSFILE.css");
+        urlThemeInput(form, CssUrlThemeElement.class).setValue("SOMECSSFILE.css");
         textThemeInput(form).setText("SOMECSS");
-        urlThemeInput(form, JsUrlThemeElement.class).setValueAttribute("https://example.bogus/SOMEJS.js");
-        urlThemeInput(form, FaviconUrlThemeElement.class).setValueAttribute("FAVICON.png");
+        urlThemeInput(form, JsUrlThemeElement.class).setValue("https://example.bogus/SOMEJS.js");
+        urlThemeInput(form, FaviconUrlThemeElement.class).setValue("FAVICON.png");
         j.submit(form);
 
         HtmlPage page = j.createWebClient().goTo("");
