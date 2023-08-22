@@ -1,11 +1,10 @@
-#!groovy
-def recentLTS = '2.375.2'
+/*
+ See the documentation for more options:
+ https://github.com/jenkins-infra/pipeline-library/
+*/
 buildPlugin(
-  // Container agents start faster and are easier to administer
-  useContainerAgent: true,
+  useContainerAgent: true, // Set to `false` if you need to use Docker for containerized tests
   configurations: [
-    [platform: 'linux',   jdk: '11'],
-    [platform: 'linux',   jdk: '17', jenkins: recentLTS],
-    [platform: 'windows', jdk: '17', jenkins: recentLTS],
-  ]
-)
+    [platform: 'linux', jdk: 21],
+    [platform: 'windows', jdk: 17],
+])

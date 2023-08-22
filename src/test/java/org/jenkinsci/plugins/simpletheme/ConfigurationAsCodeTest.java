@@ -1,6 +1,5 @@
 package org.jenkinsci.plugins.simpletheme;
 
-import static io.jenkins.plugins.casc.misc.Util.getUnclassifiedRoot;
 import static io.jenkins.plugins.casc.misc.Util.toStringFromYamlFile;
 import static io.jenkins.plugins.casc.misc.Util.toYamlString;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,11 +10,17 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNotNull;
 
+import hudson.ExtensionList;
 import io.jenkins.plugins.casc.ConfigurationContext;
 import io.jenkins.plugins.casc.ConfiguratorRegistry;
+import io.jenkins.plugins.casc.impl.configurators.GlobalConfigurationCategoryConfigurator;
 import io.jenkins.plugins.casc.misc.ConfiguredWithCode;
 import io.jenkins.plugins.casc.misc.JenkinsConfiguredWithCodeRule;
 import io.jenkins.plugins.casc.model.CNode;
+import io.jenkins.plugins.casc.model.Mapping;
+import java.util.Objects;
+import jenkins.appearance.AppearanceCategory;
+import jenkins.model.GlobalConfigurationCategory;
 import org.codefirst.SimpleThemeDecorator;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -44,12 +49,20 @@ public class ConfigurationAsCodeTest {
     @Test
     public void testExport() throws Exception {
         ConfigurationContext context = new ConfigurationContext(ConfiguratorRegistry.get());
-        CNode yourAttribute = getUnclassifiedRoot(context).get("simple-theme-plugin");
+        CNode yourAttribute = getAppearanceRoot(context).get("simpleTheme");
 
         String exported = toYamlString(yourAttribute);
 
         String expected = toStringFromYamlFile(this, "ConfigurationAsCodeExport.yml");
 
         assertThat(exported, is(expected));
+    }
+
+    private static Mapping getAppearanceRoot(ConfigurationContext context) throws Exception {
+        GlobalConfigurationCategory category =
+                ExtensionList.lookup(AppearanceCategory.class).get(0);
+        GlobalConfigurationCategoryConfigurator configurator = new GlobalConfigurationCategoryConfigurator(category);
+        return Objects.requireNonNull(configurator.describe(configurator.getTargetComponent(context), context))
+                .asMapping();
     }
 }

@@ -27,7 +27,7 @@ public class SimpleThemeConfigurationTest {
         SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
         fill(decorator);
 
-        j.configRoundtrip();
+        configRoundTrip();
 
         decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
 
@@ -35,12 +35,16 @@ public class SimpleThemeConfigurationTest {
         assertThat(decorator.getElements(), hasSize(4));
     }
 
+    private void configRoundTrip() throws Exception {
+        j.submit(j.createWebClient().goTo("manage/appearance").getFormByName("config"));
+    }
+
     @Test
     public void testConfigCreatesHtml() throws Exception {
         SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
         fill(decorator);
 
-        HtmlPage configPage = j.createWebClient().goTo("configure");
+        HtmlPage configPage = j.createWebClient().goTo("manage/appearance");
         HtmlForm form = configPage.getFormByName("config");
 
         urlThemeInput(form, CssUrlThemeElement.class).setValue("SOMECSSFILE.css");
