@@ -43,7 +43,7 @@
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
     <jenkins.version>2.361.1</jenkins.version>
-    <configuration-as-code.version>1569.vb_72405b_80249</configuration-as-code.version>
+    <configuration-as-code.version>1700.v6f448841296e</configuration-as-code.version>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
 
