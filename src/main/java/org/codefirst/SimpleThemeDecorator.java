@@ -1,11 +1,14 @@
 package org.codefirst;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.model.PageDecorator;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import jenkins.appearance.AppearanceCategory;
+import jenkins.model.GlobalConfigurationCategory;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
@@ -20,7 +23,7 @@ import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
 
 @Extension
-@Symbol("simple-theme-plugin")
+@Symbol("simpleTheme")
 public class SimpleThemeDecorator extends PageDecorator {
 
     private List<ThemeElement> elements = new ArrayList<>();
@@ -48,6 +51,12 @@ public class SimpleThemeDecorator extends PageDecorator {
         req.bindJSON(this, formData);
         save();
         return true;
+    }
+
+    @NonNull
+    @Override
+    public GlobalConfigurationCategory getCategory() {
+        return GlobalConfigurationCategory.get(AppearanceCategory.class);
     }
 
     public List<ThemeElement> getElements() {
