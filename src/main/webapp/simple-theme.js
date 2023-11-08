@@ -2,19 +2,17 @@
     "use strict";
 
     function removeAll() {
-        var links = document.getElementsByTagName('link'),
-        link, i;
-    
-        for (i = 0; i < links.length;) { 
+        var links = Array.from(document.getElementsByTagName('link')),
+            link, i;
+
+        for (i = 0; i < links.length; i++) {
             link = links[i];
             if (link.rel.split(/\s+/).some(e => e === 'icon')) {
                 link.parentNode.removeChild(link);
-            } else {
-                i++;
             }
         }
     }
-    
+
     function add(url) {
         var link = document.createElement('link');
         link.setAttribute('rel', 'icon');
