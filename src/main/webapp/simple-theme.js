@@ -2,7 +2,7 @@
     "use strict";
 
     function removeAll() {
-        var links = document.getElementsByTagName('link'),
+        var links = Array.from(document.getElementsByTagName('link')),
             link, i;
 
         for (i = 0; i < links.length; i++) {
