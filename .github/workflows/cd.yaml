@@ -1,5 +1,5 @@
 # Note: additional setup is required, see https://www.jenkins.io/redirect/continuous-delivery-of-plugins
-
+---
 name: cd
 on:
   workflow_dispatch:
