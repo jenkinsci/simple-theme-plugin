@@ -5,7 +5,7 @@
 [![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/simple-theme-plugin.svg?color=blue)](https://plugins.jenkins.io/simple-theme-plugin)
 [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins%2Fsimple-theme-plugin%2Fmain)](https://ci.jenkins.io/job/Plugins/job/simple-theme-plugin/job/main/)
 [![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin.svg)](https://github.com/jenkinsci/simple-theme-plugin/blob/main/LICENSE.txt)
-[![Maintenance](https://img.shields.io/maintenance/yes/2023.svg)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2024.svg)]()
 
 This plugin allows to customize Jenkin's appearance with custom
 CSS and JavaScript. It also allows to replace the Favicon.
@@ -15,15 +15,8 @@ For a more user-centric approch to theming, take a look at the
 
 ## Themes
 
-Some themes can be found on GitHub:
-
-- ["Atlassian"](https://github.com/djonsson/jenkins-atlassian-theme)
-- [Doony](https://github.com/kevinburke/doony)
-- [Isotope11](https://github.com/isotope11/jenkins-isotope-style)
-- [Material](http://afonsof.com/jenkins-material-theme/)
-- [Neo2](https://tobix.github.io/jenkins-neo2-theme/)
-- [Rackspace Canon](https://github.com/rackerlabs/canon-jenkins)
-- [Color Weather Icons](https://github.com/APEdevelopment/jenkins-colour-weather-icons)
+Some themes can be found on GitHub, but most of them weren't updated in
+multiple years, so I removed them from this README.
 
 ## Authors
 
@@ -34,7 +27,7 @@ Some themes can be found on GitHub:
 
 If you want to contribute to this plugin, you probably will need a Jenkins
 plugin developement environment. This basically means a current version of Java
-(Java 8 should probably be okay for now) and [Apache Maven]. See the [Jenkins
+(Java 17 should probably be okay for now) and [Apache Maven]. See the [Jenkins
 Plugin Tutorial] for details.
 
 If you have the proper environment, typing:
@@ -44,7 +37,7 @@ If you have the proper environment, typing:
 should create a plugin as `target/*.hpi`, which you can install in your Jenkins
 instance. Running
 
-    $ mvn hpi:run -Djenkins.version=2.107.3
+    $ mvn hpi:run -Djenkins.version=2.452.2
 
 allows you to spin up a test Jenkins instance on [localhost] to test your
 local changes before commiting.
