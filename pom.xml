@@ -42,7 +42,7 @@
   <properties>
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/simple-theme-plugin</gitHubRepo>
-    <jenkins.version>2.426.1</jenkins.version>
+    <jenkins.version>2.426.3</jenkins.version>
     <hpi.compatibleSinceVersion>171</hpi.compatibleSinceVersion>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
