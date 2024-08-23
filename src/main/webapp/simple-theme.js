@@ -2,32 +2,26 @@
     "use strict";
 
     function removeAll() {
-        var links = Array.from(document.getElementsByTagName('link')),
-            link, i;
+        const links = document.getElementsByTagName('link');
 
-        for (i = 0; i < links.length; i++) {
-            link = links[i];
+        for (const link of links) {
             if (link.rel.split(/\s+/).some(e => e === 'icon')) {
-                link.parentNode.removeChild(link);
+                link.remove();
             }
         }
     }
 
     function add(url) {
-        var link = document.createElement('link');
+        const link = document.createElement('link');
         link.setAttribute('rel', 'icon');
         document.getElementsByTagName('head')[0].appendChild(link);
         link.setAttribute('href', url);
     }
 
-    function replaceFavicon(url) {
-        document.addEventListener("DOMContentLoaded", function(event) {
-            removeAll();
-            add(url);
-        });
-    }
+    document.addEventListener("DOMContentLoaded", function(event) {
+        const script = document.getElementById("simple-theme-script");
+        removeAll();
+        add(script.dataset.url);
+    });
 
-    global['org.jenkinsci.plugins.simpletheme'] = {
-        replaceFavicon: replaceFavicon
-    };
 })(this, document);
