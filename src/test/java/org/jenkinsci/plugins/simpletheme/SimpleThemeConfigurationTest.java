@@ -59,7 +59,7 @@ public class SimpleThemeConfigurationTest {
         assertElementPresentByXPath(page, "//script[contains(@src,'SOMEJS.js')]");
 
         assertElementPresentByXPath(page, "//script[contains(@src,'simple-theme.js')]");
-        assertElementPresentByXPath(page, "//script[contains(text(),'FAVICON.png')]");
+        assertElementPresentByXPath(page, "//script[contains(@data-url,'FAVICON.png')]");
     }
 
     private void fill(SimpleThemeDecorator decorator) {

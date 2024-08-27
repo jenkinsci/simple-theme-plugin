@@ -11,9 +11,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class FaviconUrlThemeElement extends UrlThemeElement {
 
     private static final String SCRIPT_INCLUDE =
-            "<script src=\"{0}/plugin/simple-theme-plugin/simple-theme.js\"></script>";
-    private static final String FAVICON_SCRIPT =
-            "<script>\n" + "window[''org.jenkinsci.plugins.simpletheme''].replaceFavicon(\"{0}\");\n" + "</script>";
+            "<script id=\"simple-theme-script\" data-url=\"{0}\" src=\"{1}/plugin/simple-theme-plugin/simple-theme.js\"></script>";
 
     @DataBoundConstructor
     public FaviconUrlThemeElement(String url) {
@@ -22,8 +20,8 @@ public class FaviconUrlThemeElement extends UrlThemeElement {
 
     @Override
     public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
-        fragments.add(MessageFormat.format(SCRIPT_INCLUDE, Jenkins.get().getRootUrlFromRequest()));
-        fragments.add(MessageFormat.format(FAVICON_SCRIPT, getUrl()));
+        fragments.add(
+                MessageFormat.format(SCRIPT_INCLUDE, getUrl(), Jenkins.get().getRootUrlFromRequest()));
     }
 
     @Extension
