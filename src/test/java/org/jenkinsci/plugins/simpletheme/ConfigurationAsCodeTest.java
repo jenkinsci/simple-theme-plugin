@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import hudson.ExtensionList;
 import io.jenkins.plugins.casc.ConfigurationContext;
@@ -16,23 +16,21 @@ import io.jenkins.plugins.casc.ConfiguratorRegistry;
 import io.jenkins.plugins.casc.impl.configurators.GlobalConfigurationCategoryConfigurator;
 import io.jenkins.plugins.casc.misc.ConfiguredWithCode;
 import io.jenkins.plugins.casc.misc.JenkinsConfiguredWithCodeRule;
+import io.jenkins.plugins.casc.misc.junit.jupiter.WithJenkinsConfiguredWithCode;
 import io.jenkins.plugins.casc.model.CNode;
 import io.jenkins.plugins.casc.model.Mapping;
 import java.util.Objects;
 import jenkins.appearance.AppearanceCategory;
 import jenkins.model.GlobalConfigurationCategory;
 import org.codefirst.SimpleThemeDecorator;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ConfigurationAsCodeTest {
-
-    @ClassRule
-    @ConfiguredWithCode("ConfigurationAsCode.yml")
-    public static JenkinsConfiguredWithCodeRule j = new JenkinsConfiguredWithCodeRule();
+@WithJenkinsConfiguredWithCode
+class ConfigurationAsCodeTest {
 
     @Test
-    public void testConfig() {
+    @ConfiguredWithCode("ConfigurationAsCode.yml")
+    void testConfig(JenkinsConfiguredWithCodeRule j) {
         SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
 
         assertNotNull(decorator.getElements());
@@ -47,7 +45,8 @@ public class ConfigurationAsCodeTest {
     }
 
     @Test
-    public void testExport() throws Exception {
+    @ConfiguredWithCode("ConfigurationAsCode.yml")
+    void testExport(JenkinsConfiguredWithCodeRule j) throws Exception {
         ConfigurationContext context = new ConfigurationContext(ConfiguratorRegistry.get());
         CNode yourAttribute = getAppearanceRoot(context).get("simpleTheme");
 

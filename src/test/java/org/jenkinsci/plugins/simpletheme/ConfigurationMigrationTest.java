@@ -8,19 +8,17 @@ import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
 
 import org.codefirst.SimpleThemeDecorator;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.jvnet.hudson.test.recipes.LocalData;
 
-public class ConfigurationMigrationTest {
-
-    @Rule
-    public JenkinsRule j = new JenkinsRule();
+@WithJenkins
+class ConfigurationMigrationTest {
 
     @Test
     @LocalData
-    public void testFrom04() throws Exception {
+    void testFrom04(JenkinsRule j) throws Exception {
         j.configRoundtrip();
         j.waitUntilNoActivity();
 
@@ -38,7 +36,7 @@ public class ConfigurationMigrationTest {
 
     @Test
     @LocalData
-    public void testFrom04Empty() throws Exception {
+    void testFrom04Empty(JenkinsRule j) throws Exception {
         j.configRoundtrip();
         j.waitUntilNoActivity();
 
