@@ -20,7 +20,7 @@ import org.jenkinsci.plugins.simpletheme.ThemeElement;
 import org.kohsuke.stapler.Ancestor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.Stapler;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest2;
 
 @Extension
 @Symbol("simpleTheme")
@@ -46,7 +46,7 @@ public class SimpleThemeDecorator extends PageDecorator {
     }
 
     @Override
-    public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+    public boolean configure(StaplerRequest2 req, JSONObject formData) throws FormException {
         elements.clear();
         req.bindJSON(this, formData);
         save();
@@ -146,7 +146,7 @@ public class SimpleThemeDecorator extends PageDecorator {
      * @return true if it is okay to inject CSS
      */
     public boolean shouldInjectCss() {
-        StaplerRequest req = Stapler.getCurrentRequest();
+        StaplerRequest2 req = Stapler.getCurrentRequest2();
         if (req == null) {
             return false;
         }
