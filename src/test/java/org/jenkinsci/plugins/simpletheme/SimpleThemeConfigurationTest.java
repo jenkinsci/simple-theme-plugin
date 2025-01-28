@@ -3,7 +3,7 @@ package org.jenkinsci.plugins.simpletheme;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.htmlunit.WebAssert.assertElementPresentByXPath;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,21 +13,19 @@ import org.htmlunit.html.HtmlForm;
 import org.htmlunit.html.HtmlInput;
 import org.htmlunit.html.HtmlPage;
 import org.htmlunit.html.HtmlTextArea;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
-public class SimpleThemeConfigurationTest {
-
-    @Rule
-    public JenkinsRule j = new JenkinsRule();
+@WithJenkins
+class SimpleThemeConfigurationTest {
 
     @Test
-    public void testConfigRoundTrip() throws Exception {
+    void testConfigRoundTrip(JenkinsRule j) throws Exception {
         SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
         fill(decorator);
 
-        configRoundTrip();
+        configRoundTrip(j);
 
         decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
 
@@ -35,12 +33,12 @@ public class SimpleThemeConfigurationTest {
         assertThat(decorator.getElements(), hasSize(4));
     }
 
-    private void configRoundTrip() throws Exception {
+    private void configRoundTrip(JenkinsRule j) throws Exception {
         j.submit(j.createWebClient().goTo("manage/appearance").getFormByName("config"));
     }
 
     @Test
-    public void testConfigCreatesHtml() throws Exception {
+    void testConfigCreatesHtml(JenkinsRule j) throws Exception {
         SimpleThemeDecorator decorator = j.jenkins.getDescriptorByType(SimpleThemeDecorator.class);
         fill(decorator);
 
