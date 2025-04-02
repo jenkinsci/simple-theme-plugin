@@ -2,7 +2,7 @@
     "use strict";
 
     function removeAll() {
-        const links = document.getElementsByTagName('link');
+        const links = Array.from(document.getElementsByTagName('link'));
 
         for (const link of links) {
             if (link.rel.split(/\s+/).some(e => e === 'icon')) {
