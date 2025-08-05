@@ -10,7 +10,6 @@ import java.util.Set;
 import jenkins.appearance.AppearanceCategory;
 import jenkins.model.GlobalConfigurationCategory;
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
 import org.jenkinsci.plugins.simpletheme.CssTextThemeElement;
 import org.jenkinsci.plugins.simpletheme.CssUrlThemeElement;
@@ -114,16 +113,16 @@ public class SimpleThemeDecorator extends PageDecorator {
 
     @SuppressWarnings("deprecation")
     protected Object readResolve() {
-        if (StringUtils.isNotBlank(cssUrl)) {
+        if (cssUrl != null && !cssUrl.isBlank()) {
             elements.add(new CssUrlThemeElement(cssUrl));
         }
-        if (StringUtils.isNotBlank(cssRules)) {
+        if (cssRules != null && !cssRules.isBlank()) {
             elements.add(new CssTextThemeElement(cssRules));
         }
-        if (StringUtils.isNotBlank(jsUrl)) {
+        if (jsUrl != null && !jsUrl.isBlank()) {
             elements.add(new JsUrlThemeElement(jsUrl));
         }
-        if (StringUtils.isNotBlank(faviconUrl)) {
+        if (faviconUrl != null && !faviconUrl.isBlank()) {
             elements.add(new FaviconUrlThemeElement(faviconUrl));
         }
         return this;
@@ -136,7 +135,7 @@ public class SimpleThemeDecorator extends PageDecorator {
         for (ThemeElement element : elements) {
             element.collectHeaderFragment(data, injectCss);
         }
-        return StringUtils.join(data, "\n");
+        return String.join("\n", data);
     }
 
     /**
