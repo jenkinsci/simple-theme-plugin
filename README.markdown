@@ -1,16 +1,16 @@
 # Simple Theme Plugin for Jenkins
 
-[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/simple-theme-plugin.svg)](https://plugins.jenkins.io/simple-theme-plugin)
-[![GitHub release](https://img.shields.io/github/release/jenkinsci/simple-theme-plugin.svg?label=release)](https://github.com/jenkinsci/simple-theme-plugin/releases/latest)
-[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/simple-theme-plugin.svg?color=blue)](https://plugins.jenkins.io/simple-theme-plugin)
+[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/simple-theme-plugin)](https://plugins.jenkins.io/simple-theme-plugin)
+[![GitHub release](https://img.shields.io/github/release/jenkinsci/simple-theme-plugin?label=release)](https://github.com/jenkinsci/simple-theme-plugin/releases/latest)
+[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/simple-theme-plugin?color=blue)](https://plugins.jenkins.io/simple-theme-plugin)
 [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins%2Fsimple-theme-plugin%2Fmain)](https://ci.jenkins.io/job/Plugins/job/simple-theme-plugin/job/main/)
-[![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin.svg)](https://github.com/jenkinsci/simple-theme-plugin/blob/main/LICENSE.txt)
-[![Maintenance](https://img.shields.io/maintenance/yes/2024.svg)]()
+[![GitHub license](https://img.shields.io/github/license/jenkinsci/simple-theme-plugin)](https://github.com/jenkinsci/simple-theme-plugin/blob/main/LICENSE.txt)
+![GitHub last commit](https://img.shields.io/github/last-commit/jenkinsci/simple-theme-plugin)
 
 This plugin allows to customize Jenkin's appearance with custom
 CSS and JavaScript. It also allows to replace the Favicon.
 
-For a more user-centric approch to theming, take a look at the
+For a more user-centric approach to theming, take a look at the
 [Theme Manager](https://plugins.jenkins.io/theme-manager/) plugin.
 
 ## Themes
@@ -18,15 +18,10 @@ For a more user-centric approch to theming, take a look at the
 Some themes can be found on GitHub, but most of them weren't updated in
 multiple years, so I removed them from this README.
 
-## Authors
-
-* @TobiX
-* @mallowlabs
-
 ## Contributing
 
 If you want to contribute to this plugin, you probably will need a Jenkins
-plugin developement environment. This basically means a current version of Java
+plugin development environment. This basically means a current version of Java
 (Java 17 should probably be okay for now) and [Apache Maven]. See the [Jenkins
 Plugin Tutorial] for details.
 
