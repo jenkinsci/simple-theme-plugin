@@ -6,10 +6,11 @@ import java.text.MessageFormat;
 import java.util.Set;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.Stapler;
 
 public class JsUrlThemeElement extends UrlThemeElement {
 
-    private static final String JS_HTML = "<script type=\"text/javascript\" src=\"{0}\"></script>";
+    private static final String JS_HTML = "<script type=\"text/javascript\" src=\"{0}\" nonce=\"{1}\"></script>";
 
     @DataBoundConstructor
     public JsUrlThemeElement(String url) {
@@ -18,7 +19,7 @@ public class JsUrlThemeElement extends UrlThemeElement {
 
     @Override
     public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
-        fragments.add(MessageFormat.format(JS_HTML, getUrl()));
+        fragments.add(MessageFormat.format(JS_HTML, getUrl(), NonceContributor.getOrGenerateNonce(Stapler.getCurrentRequest2())));
     }
 
     @Extension
