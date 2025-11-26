@@ -12,7 +12,7 @@ import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest2;
 
 @Extension
-@SuppressRestrictedWarnings({ Contributor.class, CspBuilder.class, FetchDirective.class })
+@SuppressRestrictedWarnings({Contributor.class, CspBuilder.class, FetchDirective.class})
 public class NonceContributor implements Contributor {
     @Override
     public void apply(CspBuilder cspBuilder) {

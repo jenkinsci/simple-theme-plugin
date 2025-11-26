@@ -19,7 +19,8 @@ public class JsUrlThemeElement extends UrlThemeElement {
 
     @Override
     public void collectHeaderFragment(Set<String> fragments, boolean injectCss) {
-        fragments.add(MessageFormat.format(JS_HTML, getUrl(), NonceContributor.getOrGenerateNonce(Stapler.getCurrentRequest2())));
+        fragments.add(MessageFormat.format(
+                JS_HTML, getUrl(), NonceContributor.getOrGenerateNonce(Stapler.getCurrentRequest2())));
     }
 
     @Extension
