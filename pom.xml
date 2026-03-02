@@ -95,7 +95,6 @@
         <artifactId>maven-hpi-plugin</artifactId>
         <configuration>
           <compatibleSinceVersion>0.5</compatibleSinceVersion>
-          <dependencyResolution>compile</dependencyResolution>
         </configuration>
       </plugin>
     </plugins>
